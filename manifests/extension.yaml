@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCDExtension
+metadata:
+  name: progressive-sync
+  finalizers:
+    - extensions-finalizer.argocd.argoproj.io
+spec:
+  sources:
+    - web: https://github.com/alexymantha/argocd-progressive-sync-extension/raw/main/ui/dist/extension.tar 
+
