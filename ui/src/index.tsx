@@ -3,6 +3,7 @@ import * as React from 'react';
 export const Extension = (props: {
   application: any;
 }) => {
+  console.log(props.application)
   return (
     <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
       <a className='neutral'>
