@@ -1,6 +1,6 @@
 const path = require('path');
 
-const groupKind = 'cert-manager.io/Certificate';
+const extName = 'progressive-sync';
 
 const config = {
   entry: {
@@ -8,9 +8,9 @@ const config = {
   },
   output: {
     filename: 'extensions.js',
-    path: __dirname + `/dist/resources/${groupKind}/ui`,
+    path: __dirname + `/dist/resources/${extName}/ui`,
     libraryTarget: 'window',
-    library: ['extensions', 'resources', groupKind],
+    library: ['extensions'],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.ttf'],

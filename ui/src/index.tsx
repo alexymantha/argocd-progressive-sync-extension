@@ -8,3 +8,8 @@ export const Extension = (props: {
 );
 
 export const component = Extension;
+
+// Register the component extension in ArgoCD
+((window: any) => {
+  window?.extensionsAPI?.registerStatusBarExtension(component, 'Progressive Sync', 'fa-hourglass');
+d})(window)
