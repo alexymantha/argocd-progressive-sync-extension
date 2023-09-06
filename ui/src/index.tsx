@@ -4,7 +4,7 @@ export const Extension = (props: {
   tree: any;
   resource: any;
 }) => {
-  console.log()
+  console.log(props.tree)
   return (
     <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
       <a className='neutral'>
