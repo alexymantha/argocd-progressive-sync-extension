@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 export const Extension = (props: {
-  tree: any;
-  resource: any;
+  application: any;
 }) => {
   return (
     <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
@@ -13,9 +12,23 @@ export const Extension = (props: {
   )
 }
 
+export const AnotherExtension = (props: {
+  application: any;
+}) => {
+  return (
+    <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
+      <a className='warning'>
+        <i className={`fa fa-play-circle`} /> Extension
+      </a>
+    </div>
+  )
+}
+
 export const component = Extension;
+export const anotherComponent = AnotherExtension;
 
 // Register the component extension in ArgoCD
 ((window: any) => {
-  window?.extensionsAPI?.registerStatusBarExtension(component, 'PROGRESSIVE SYNC');
+  window?.extensionsAPI?.registerStatusPanelExtension(component, 'PROGRESSIVE SYNC');
+  window?.extensionsAPI?.registerStatusPanelExtension(anotherComponent, 'ANOTHER EXTENSION', {helpContent: "Example of help content"});
 })(window)
