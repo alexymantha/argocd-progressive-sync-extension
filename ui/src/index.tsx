@@ -1,35 +1,40 @@
+import {HelpIcon} from 'argo-ui';
 import * as React from 'react';
+
+const TITLE = "PROGRESSIVE SYNC";
+
+interface SectionInfo {
+    title: string;
+    helpContent?: string;
+}
+
+const sectionLabel = (info: SectionInfo) => (
+    <label style={{fontSize: '12px', fontWeight: 600, color: "#6D7F8B"}}>
+        {info.title}
+        {info.helpContent && <HelpIcon title={info.helpContent} />}
+    </label>
+);
 
 export const Extension = (props: {
   application: any;
 }) => {
-  console.log(props.application)
   return (
-    <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
-      <a className='neutral'>
-        <i className={`fa fa-pause-circle`} /> Progressive Sync
-      </a>
-    </div>
-  )
-}
-
-export const AnotherExtension = (props: {
-  application: any;
-}) => {
-  return (
-    <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
-      <a className='warning'>
-        <i className={`fa fa-play-circle`} /> Extension
-      </a>
+    <div className='application-status-panel__item' style={{position: 'relative'}}>
+      {sectionLabel({
+        title: TITLE,
+      })}
+      <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
+        <a className='neutral'>
+          <i className={`fa fa-pause-circle`} /> Progressive Sync
+        </a>
+      </div>
     </div>
   )
 }
 
 export const component = Extension;
-export const anotherComponent = AnotherExtension;
 
 // Register the component extension in ArgoCD
 ((window: any) => {
-  window?.extensionsAPI?.registerStatusPanelExtension(component, 'PROGRESSIVE SYNC');
-  window?.extensionsAPI?.registerStatusPanelExtension(anotherComponent, 'ANOTHER EXTENSION', {helpContent: "Example of help content"});
+  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE);
 })(window)
