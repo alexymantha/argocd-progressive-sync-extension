@@ -34,9 +34,20 @@ export const Extension = (props: {
   )
 }
 
+export const Flyout = (props: {
+  application: any;
+}) => {
+  return (
+    <div className='application-status-panel__item' style={{position: 'relative'}}>
+      <p>Information about the extension</p> 
+    </div>
+  )
+}
+
 export const component = Extension;
+export const flyout = Flyout;
 
 // Register the component extension in ArgoCD
 ((window: any) => {
-  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID);
+  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID, flyout);
 })(window)
