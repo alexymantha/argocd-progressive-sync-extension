@@ -9,7 +9,7 @@ const config = {
     extension: './src/index.tsx',
   },
   output: {
-    filename: 'extensions.js',
+    filename: `extensions-${extName}.js`,
     path: __dirname + `/dist/resources/${extName}/ui`,
     libraryTarget: 'window',
     library: ['extensions'],
