@@ -21,16 +21,18 @@ export const Extension = (props: {
   openFlyout: () => any;
 }) => {
   return (
-    <div className='application-status-panel__item' style={{position: 'relative'}}>
-      {sectionLabel({
-        title: TITLE,
-      })}
-      <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
-        <a className='neutral' onClick={() => props.openFlyout()}>
-          <i className={`fa fa-pause-circle`} /> Progressive Sync
-        </a>
+    <React.Fragment>
+      <div className='application-status-panel__item' style={{position: 'relative'}}>
+        {sectionLabel({
+          title: TITLE,
+        })}
+        <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
+          <a className='neutral' onClick={() => props.openFlyout()}>
+            <i className={`fa fa-pause-circle`} /> Progressive Sync
+          </a>
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
@@ -38,9 +40,11 @@ export const Flyout = (props: {
   application: any;
 }) => {
   return (
-    <div className='application-status-panel__item' style={{position: 'relative'}}>
-      <p>Information about the extension</p> 
-    </div>
+    <React.Fragment>
+      <div className='application-status-panel__item' style={{position: 'relative'}}>
+        <p>Information about the extension</p> 
+      </div>
+    </React.Fragment>
   )
 }
 
@@ -48,6 +52,6 @@ export const component = Extension;
 export const flyout = Flyout;
 
 // Register the component extension in ArgoCD
-//((window: any) => {
-//  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID, flyout);
-//})(window)
+((window: any) => {
+  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID, flyout);
+})(window)

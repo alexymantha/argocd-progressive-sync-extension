@@ -10,8 +10,8 @@ const config = {
   },
   output: {
     filename: `extensions-${extName}.js`,
-    path: __dirname + `/dist/resources/${extName}/ui`,
-    libraryTarget: 'window',
+    path: __dirname + `/dist/resources/extension-${extName}.js`,
+    //libraryTarget: 'window',
     library: ['extensions'],
   },
   resolve: {
