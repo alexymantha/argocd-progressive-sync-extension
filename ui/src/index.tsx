@@ -2,6 +2,7 @@ import {HelpIcon} from 'argo-ui';
 import * as React from 'react';
 
 const TITLE = "PROGRESSIVE SYNC";
+const ID = "PROGRESSIVE_SYNC";
 
 interface SectionInfo {
     title: string;
@@ -17,6 +18,7 @@ const sectionLabel = (info: SectionInfo) => (
 
 export const Extension = (props: {
   application: any;
+  openFlyout: () => any;
 }) => {
   return (
     <div className='application-status-panel__item' style={{position: 'relative'}}>
@@ -24,7 +26,7 @@ export const Extension = (props: {
         title: TITLE,
       })}
       <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
-        <a className='neutral'>
+        <a className='neutral' onClick={() => props.openFlyout()}>
           <i className={`fa fa-pause-circle`} /> Progressive Sync
         </a>
       </div>
@@ -36,5 +38,5 @@ export const component = Extension;
 
 // Register the component extension in ArgoCD
 ((window: any) => {
-  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE);
+  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID);
 })(window)
