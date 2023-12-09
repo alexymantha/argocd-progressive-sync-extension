@@ -15,7 +15,7 @@ const config = {
     filename: `extensions-${extName}.js`,
     path: __dirname + `/dist/resources/extension-${extName}.js`,
     libraryTarget: 'window',
-    library: ['extensions'],
+    library: ['tmp', 'extensions'],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.ttf'],
