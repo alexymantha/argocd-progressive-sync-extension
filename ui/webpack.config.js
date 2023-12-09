@@ -8,6 +8,9 @@ const config = {
   entry: {
     extension: './src/index.tsx',
   },
+  ignoreWarnings: [{
+    module: new RegExp('/node_modules/argo-ui/.*')
+  }],
   output: {
     filename: `extensions-${extName}.js`,
     path: __dirname + `/dist/resources/extension-${extName}.js`,

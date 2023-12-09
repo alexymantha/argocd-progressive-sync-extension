@@ -2,7 +2,7 @@ import {HelpIcon} from 'argo-ui';
 import * as React from 'react';
 
 const TITLE = "PROGRESSIVE SYNC";
-const ID = "PROGRESSIVE_SYNC";
+//const ID = "PROGRESSIVE_SYNC";
 
 interface SectionInfo {
     title: string;
@@ -52,6 +52,6 @@ export const component = Extension;
 export const flyout = Flyout;
 
 // Register the component extension in ArgoCD
-((window: any) => {
+/*((window: any) => {
   window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID, flyout);
-})(window)
+})(window)*/
