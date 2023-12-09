@@ -6,7 +6,7 @@
   "repository": "https://github.com/alexymantha/argocd-progressive-sync-extension",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config ./webpack.config.js && tar -C dist -cvf extension.tar resources"
+    "build": "webpack --config ./webpack.config.js --mode=development && tar -C dist -cvf extension.tar resources"
   },
   "peerDeependencies": {
     "argo-ui": "git+https://github.com/argoproj/argo-ui.git",
@@ -14,8 +14,23 @@
     "react-dom": "^16.9.3",
     "moment": "^2.29.4"
   },
-  "dependencies": {
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }, 
   "devDependencies": {
     "@types/react": "^17.0.44",
     "@types/react-dom": "^17.0.9",

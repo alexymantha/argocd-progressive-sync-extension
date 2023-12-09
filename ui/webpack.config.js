@@ -11,7 +11,7 @@ const config = {
   output: {
     filename: `extensions-${extName}.js`,
     path: __dirname + `/dist/resources/extension-${extName}.js`,
-    //libraryTarget: 'window',
+    libraryTarget: 'window',
     library: ['extensions'],
   },
   resolve: {
