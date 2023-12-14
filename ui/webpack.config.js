@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require("webpack");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
 
 const extName = 'progressive-sync';
 
@@ -6,26 +8,50 @@ const config = {
   entry: {
     extension: './src/index.tsx',
   },
+  ignoreWarnings: [{
+    module: new RegExp('/node_modules/argo-ui/.*')
+  }],
   output: {
-    filename: 'extensions.js',
-    path: __dirname + `/dist/resources/${extName}/ui`,
+    filename: `extensions-${extName}.js`,
+    path: __dirname + `/dist/resources/extension-${extName}.js`,
     libraryTarget: 'window',
-    library: ['extensions'],
+    library: ['tmp', 'extensions'],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.ttf'],
   },
-  externals: {
-    react: 'React',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserWebpackPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
+    ],  
   },
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM",
+    moment: "Moment",
+  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
+        test: /\.(ts|js)x?$/,
+        loader: "esbuild-loader",
         options: {
-          allowTsInNodeModules: true,
-          configFile: path.resolve('./src/tsconfig.json')
+          loader: "tsx",
+          target: "es2015",
         },
       },
       {
