@@ -36,6 +36,26 @@ export const Extension = (props: {
   )
 }
 
+export const Extension2 = (props: {
+  application: any;
+  openFlyout: () => any;
+}) => {
+  return (
+    <React.Fragment>
+      <div className='application-status-panel__item' style={{position: 'relative'}}>
+        {sectionLabel({
+          title: "Extension",
+        })}
+        <div className='application-status-panel__item-value' style={{ margin: 'auto 0' }}>
+          <a className='neutral' onClick={() => props.openFlyout()}>
+            <i className={`fa fa-play-circle`} /> Extension
+          </a>
+        </div>
+      </div>
+    </React.Fragment>
+  )
+}
+
 export const Flyout = (props: {
   application: any;
 }) => {
@@ -49,9 +69,11 @@ export const Flyout = (props: {
 }
 
 export const component = Extension;
+export const component2 = Extension2;
 export const flyout = Flyout;
 
 // Register the component extension in ArgoCD
 ((window: any) => {
   window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID, flyout);
+  window?.extensionsAPI?.registerStatusPanelExtension(component, "Extension", "EXTENSION", flyout);
 })(window)
