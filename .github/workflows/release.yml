@@ -15,7 +15,7 @@ jobs:
     defaults:
       run:
         working-directory: ui
-    step:
+    steps:
     - uses: actions/checkout@v3
     - name: Use Node.js 18.x
       uses: actions/setup-node@v3
