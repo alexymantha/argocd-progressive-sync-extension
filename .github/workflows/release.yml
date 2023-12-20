@@ -36,6 +36,9 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ui
     steps:
       - uses: google-github-actions/release-please-action@v4
         with:
