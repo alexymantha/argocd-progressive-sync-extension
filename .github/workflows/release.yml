@@ -45,7 +45,7 @@ jobs:
           release-type: simple
       - name: Download extension
         if: ${{ steps.release-please.outputs.release_created }}
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: extension.tar.gz
       - name: Upload Release Artifact
