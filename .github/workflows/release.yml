@@ -43,6 +43,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
+      - uses: actions/checkout@v3
+        if: ${{ steps.release-please.outputs.release_created }}
       - name: Download extension
         if: ${{ steps.release-please.outputs.release_created }}
         uses: actions/download-artifact@v4
