@@ -52,5 +52,5 @@ jobs:
         if: ${{ steps.release-please.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ steps.release.outputs.tag_name }} ./extension.tar.gz
+        run: gh release upload ${{ steps.release-please.outputs.tag_name }} ./extension.tar.gz
  
