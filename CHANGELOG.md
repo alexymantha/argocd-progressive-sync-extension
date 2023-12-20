@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/alexymantha/argocd-progressive-sync-extension/compare/v1.0.4...v1.0.5) (2023-12-20)
+
+
+### Bug Fixes
+
+* checkout ([00b75be](https://github.com/alexymantha/argocd-progressive-sync-extension/commit/00b75be0a975515effe33398054ecfdca157a86c))
+
 ## [1.0.4](https://github.com/alexymantha/argocd-progressive-sync-extension/compare/v1.0.3...v1.0.4) (2023-12-20)
 
 
