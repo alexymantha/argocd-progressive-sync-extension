@@ -1,12 +1,12 @@
 {
   "name": "argocd-progressive-sync-extension",
   "version": "1.0.0",
-  "description": "ArgoCD UI extension to provide better feedback on the status of progressive syncs",
+  "description": "ArgoCD UI extension to provide better feedback on the status of progressive syncs.",
   "main": "index.js",
   "repository": "https://github.com/alexymantha/argocd-progressive-sync-extension",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config ./webpack.config.js --mode=development && tar -C dist -cvf extension.tar resources"
+    "build": "webpack --config ./webpack.config.js --mode=development && tar -C dist -cvf extension.tar.gz resources"
   },
   "peerDeependencies": {
     "argo-ui": "git+https://github.com/argoproj/argo-ui.git",
