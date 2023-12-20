@@ -38,17 +38,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4
+        id: release-please
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
-          skip-github-pull-request: true
       - name: Download extension
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release-please.outputs.release_created }}
         uses: actions/download-artifact@v3
         with:
           name: extension.tar.gz
       - name: Upload Release Artifact
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release-please.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release upload ${{ steps.release.outputs.tag_name }} ./extension.tar.gz
