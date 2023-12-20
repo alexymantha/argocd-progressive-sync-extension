@@ -1,0 +1,52 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+name: Build and release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    step:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: 'npm'
+    - run: cd ui
+    - run: yarn install --frozen-lockfile
+    - run: yarn build
+    - run: yarn test
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.0.0
+      with:
+        name: extension.tar.gz
+        # A file, directory or wildcard pattern that describes what to upload
+        path: dist/extension.tar.gz
+        if-no-files-found: error
+        compression-level: 9
+
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+      - name: Download extension
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/download-artifact@v3
+        with:
+          name: extension.tar.gz
+      - name: Upload Release Artifact
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ steps.release.outputs.tag_name }} ./extension.tar.gz
+ 
