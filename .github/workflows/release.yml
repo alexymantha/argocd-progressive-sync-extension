@@ -50,9 +50,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: extension.tar.gz
+      - name: Generate checksum
+        uses: jmgilman/actions-generate-checksum@v1
+        with:
+          patterns: extension.tar.gz
       - name: Upload Release Artifact
         if: ${{ steps.release-please.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ steps.release-please.outputs.tag_name }} ./extension.tar.gz
+        run: gh release upload ${{ steps.release-please.outputs.tag_name }} ./extension.tar.gz ./checksum.txt
  
