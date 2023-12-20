@@ -12,6 +12,9 @@ name: Build and release
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ui
     step:
     - uses: actions/checkout@v3
     - name: Use Node.js 18.x
@@ -19,7 +22,6 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-    - run: cd ui
     - run: yarn install --frozen-lockfile
     - run: yarn build
     - run: yarn test
