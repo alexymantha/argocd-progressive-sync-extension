@@ -41,7 +41,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
-          path: ui/
       - name: Download extension
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/download-artifact@v3
