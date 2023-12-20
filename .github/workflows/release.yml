@@ -29,7 +29,7 @@ jobs:
       with:
         name: extension.tar.gz
         # A file, directory or wildcard pattern that describes what to upload
-        path: dist/extension.tar.gz
+        path: extension.tar.gz
         if-no-files-found: error
         compression-level: 9
 
