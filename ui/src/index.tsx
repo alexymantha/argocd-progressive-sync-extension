@@ -53,5 +53,5 @@ export const flyout = Flyout;
 
 // Register the component extension in ArgoCD
 ((window: any) => {
-  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID, flyout);
+//  window?.extensionsAPI?.registerStatusPanelExtension(component, TITLE, ID, flyout);
 })(window)
