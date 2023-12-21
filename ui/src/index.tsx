@@ -22,7 +22,7 @@ export const Extension = (props: {
 }) => {
   return (
     <React.Fragment>
-      <div className='application-status-panel__item' style={{position: 'relative'}}>
+      <div className='application-status-panel__item'>
         {sectionLabel({
           title: TITLE,
         })}
@@ -41,7 +41,7 @@ export const Flyout = (props: {
 }) => {
   return (
     <React.Fragment>
-      <div className='application-status-panel__item' style={{position: 'relative'}}>
+      <div className='application-status-panel__item'>
         <p>Information about the extension</p> 
       </div>
     </React.Fragment>
