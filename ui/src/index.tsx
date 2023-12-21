@@ -1,4 +1,4 @@
-import {HelpIcon} from 'argo-ui';
+//import {HelpIcon} from 'argo-ui';
 import * as React from 'react';
 
 const TITLE = "PROGRESSIVE SYNC";
@@ -12,7 +12,7 @@ interface SectionInfo {
 const sectionLabel = (info: SectionInfo) => (
     <label style={{fontSize: '12px', fontWeight: 600, color: "#6D7F8B"}}>
         {info.title}
-        {info.helpContent && <HelpIcon title={info.helpContent} />}
+        {info.helpContent /*&& <HelpIcon title={info.helpContent} />*/}
     </label>
 );
 
