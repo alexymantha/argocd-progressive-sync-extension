@@ -18,7 +18,7 @@ export const Extension = (props: {
     application: any;
     openFlyout: () => any;
 }) => {
-    console.log(application);
+    console.log(props);
     return (
         <React.Fragment>
             <div className='application-status-panel__item'>
