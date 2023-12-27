@@ -21,6 +21,7 @@ export const Extension = (props: {
 }) => {
     const [progressing, setProgressing] = useState(false);
     const owner = getOwner(props.application);
+    console.log(owner)
     if(!owner) {
         return null;
     }
