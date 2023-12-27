@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from "react";
 
 const TITLE = "PROGRESSIVE SYNC";
 const ID = "PROGRESSIVE_SYNC";
@@ -18,7 +19,30 @@ export const Extension = (props: {
     application: any;
     openFlyout: () => any;
 }) => {
-    console.log(props);
+    const [progressing, setProgressing] = useState(false);
+    const owner = getOwner(props.application);
+    if(!owner) {
+        return null;
+    }
+
+    useEffect(() => {
+        let url = `/api/v1/applicationsets/${owner.name}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                const prog = isProgressing(data, props.application.metadata.name);
+                console.log(prog)
+                setProgressing(prog);
+            })
+            .catch(err => {
+                console.error("res.data", err);
+            });
+    });
+
+    if(!progressing) {
+        return null;
+    }
     return (
         <React.Fragment>
             <div className='application-status-panel__item'>
