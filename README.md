@@ -45,3 +45,8 @@ spec:
           emptyDir: {}
 ```
 **Replace `<VERSION>` with the desired extension version**
+
+## TODO
+
+- Add flyout panel showing a graph of the progress of the sync.
+- Automatically update when the status changes.
