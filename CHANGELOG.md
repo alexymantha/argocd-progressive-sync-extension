@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/alexymantha/argocd-progressive-sync-extension/compare/v1.0.1...v1.1.0) (2024-01-03)
+
+
+### Features
+
+* only show when waiting for sync ([#10](https://github.com/alexymantha/argocd-progressive-sync-extension/issues/10)) ([6c7de7c](https://github.com/alexymantha/argocd-progressive-sync-extension/commit/6c7de7ce50707e47165427fa5ef0d408d02f0558))
+
 ## [1.0.1](https://github.com/alexymantha/argocd-progressive-sync-extension/compare/v1.0.0...v1.0.1) (2023-12-20)
 
 
