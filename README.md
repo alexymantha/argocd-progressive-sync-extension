@@ -2,6 +2,8 @@
 
 ArgoCD UI extension to provide better feedback on the status of progressive syncs. It adds a new box in the status panel when the current application is waiting for a progressive sync to progress.
 
+![Demo](docs/demo.png)
+
 ## Prerequisites
 
 This extension depends on the Progressive Sync alpha feature and needs to be enabled manually, see [docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/Progressive-Syncs/) for more information on how to enable and use the feature.
@@ -42,4 +44,4 @@ spec:
         - name: extensions
           emptyDir: {}
 ```
-**Replace <VERSION> with the desired extension version**
+**Replace `<VERSION>` with the desired extension version**
