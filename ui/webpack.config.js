@@ -21,7 +21,7 @@ const config = {
     extensions: ['.ts', '.tsx', '.js', '.json', '.ttf'],
   },
   optimization: {
-    minimize: false,
+    minimize: true,
     minimizer: [
       new TerserWebpackPlugin({
         terserOptions: {
@@ -40,8 +40,8 @@ const config = {
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      minimize: false,
-      debug: true,
+      minimize: true,
+      debug: false,
     }),
   ],
   module: {
