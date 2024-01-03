@@ -6,7 +6,8 @@
   "repository": "https://github.com/alexymantha/argocd-progressive-sync-extension",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config ./webpack.config.js --mode=development && tar -C dist -zcvf extension.tar.gz resources"
+    "build": "webpack --config ./webpack.config.js --mode=development && tar -C dist -zcvf extension.tar.gz resources",
+    "install": "yarn build && ./install-cluster.sh"
   },
   "peerDeependencies": {
     "argo-ui": "git+https://github.com/argoproj/argo-ui.git",
