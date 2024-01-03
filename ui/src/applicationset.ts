@@ -1,4 +1,17 @@
-export function isProgressing(applicationset: any, appName: string) {
+type ApplicationStatus = {
+    application: string;
+    status: string;
+    message: string;
+    step: string;
+}
+
+type ApplicationSet = {
+    status: {
+        applicationStatus?: ApplicationStatus[];
+    };
+}
+
+export function isProgressing(applicationset: ApplicationSet, appName: string) {
     if (!applicationset) {
         return false;
     }
@@ -8,7 +21,7 @@ export function isProgressing(applicationset: any, appName: string) {
         return false;
     }
 
-    const applicationStatus = status.find((status: any) => status.application === appName); 
+    const applicationStatus = status.find((status: ApplicationStatus) => status.application === appName); 
     if (!applicationStatus) {
         return false;
     }

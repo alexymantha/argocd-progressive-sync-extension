@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
-import { getOwner } from './application';
+import { getOwner, Application } from './application';
 import { isProgressing } from './applicationset';
 
 const TITLE = "PROGRESSIVE SYNC";
@@ -18,7 +18,7 @@ const sectionLabel = (info: SectionInfo) => (
 );
 
 export const Extension = (props: {
-    application: any;
+    application: Application;
     openFlyout: () => any;
 }) => {
     const [progressing, setProgressing] = useState(false);
